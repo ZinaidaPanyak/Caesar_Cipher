@@ -11,7 +11,7 @@ def Cipher (text, move = a):
         else:
             stroka += b
     return stroka
-print(Cipher(text))
+print('Шифровка: ', Cipher(text))
 
 def DeCipher (text, move = a):
     stroka = ' '
@@ -22,5 +22,5 @@ def DeCipher (text, move = a):
         else:
             stroka += b
     return stroka
-print(DeCipher(text))
-    
+print('Расшифровка: ', DeCipher(text))
+ 
