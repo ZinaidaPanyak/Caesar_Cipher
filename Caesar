@@ -9,7 +9,12 @@ def Cipher(text, move=a):
     for b in text:
         if b in letters:
             num = letters.index(b)
-            stroka += letters[num + move]
+            k = num + move
+            if k > 32:
+              z = k - 33
+              stroka += letters[z]
+            elif k <= 32:
+              stroka += letters[k]
         else:
             stroka += b
     return stroka
