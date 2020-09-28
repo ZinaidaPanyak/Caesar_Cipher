@@ -1,18 +1,10 @@
-<<<<<<< HEAD
-a = int(input('Введите значения сдвига ))
-t = input('Введите текст )
-letters = ['а', 'б', 'в', 'г', 'д', 'е', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я']
-
-def Cipher (text, move = a):
-=======
 a = int(input('Введите значения сдвига '))
 text = input('Введите текст ')
-letters = ['а', 'б', 'в', 'г', 'д', 'е', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х',
+letters = ['а', 'б', 'в', 'г', 'д', 'е', 'ё' ,'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х',
            'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я']
 
 
 def Cipher(text, move=a):
->>>>>>> main
     stroka = ' '
     for b in text:
         if b in letters:
@@ -21,18 +13,12 @@ def Cipher(text, move=a):
         else:
             stroka += b
     return stroka
-<<<<<<< HEAD
-print(Cipher(text))
 
-def DeCipher (text, move = a):
-=======
-    
-    
+
 print('Шифровка: ', Cipher(text))
 
 
 def DeCipher(text, move=a):
->>>>>>> main
     stroka = ' '
     for b in text:
         if b in letters:
@@ -41,12 +27,6 @@ def DeCipher(text, move=a):
         else:
             stroka += b
     return stroka
-<<<<<<< HEAD
-print(DeCipher(text))
-    
-=======
-    
-    
+
 print('Расшифровка: ', DeCipher(text))
- 
->>>>>>> main
+
