@@ -1,6 +1,6 @@
 try:
     a = int(input('Введите значения сдвига (целое число) '))
-except ValueError:
+except ValueError:  # Если появляется ошибка, даем возможность повторного ввода
         try:
             a = int(input('Не верные данные. Введите целое число '))
         except ValueError:
@@ -14,23 +14,23 @@ b_letters = ['А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', '
              'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я']
 
 def Cipher(text, move=a):
-    stroka = ' '
+    stroka = ' '  # Создаем пустую строку, которая будет заполняться
     for b in text:
         if b in letters:
-            num = letters.index(b)
-            k = num + move
-            if k > 32:
+            num = letters.index(b)  # Определяем номер буквы
+            k = num + move  # Определяем номер замещающей буквы
+            if k > 32:  # Учитываем, что при номере новой буквы, превышающем 32, нужно перейти к началу алфавита
               z = k - 33
               stroka += letters[z]
             elif k <= 32:
               stroka += letters[k]
-        elif b in b_letters:
+        elif b in b_letters:  # Всё то же самое, но для заглавных букв
             num = b_letters.index(b)
             k = num + move
             if k > 32:
                 z = k - 33
                 stroka += b_letters[z]      
-        else:
+        else:   # Если введена не буква, то ничего не меняется
             stroka += b
     return stroka
 
@@ -39,16 +39,16 @@ print('Шифровка: ', Cipher(text))
 
 
 def DeCipher(text, move=a):
-    stroka = ' '
+    stroka = ' '  # Создаем пустую строку, которая будет заполняться
     for b in text:
         if b in letters:
-            num = letters.index(b)
-            stroka += letters[num - move]
-        elif b in b_letters:  
+            num = letters.index(b)  # Определяем номер буквы
+            stroka += letters[num - move]  # Добавляем новую букву с учетом сдвига
+        elif b in b_letters:  # Все то же самое для заглавных букв   
             num = b_letters.index(b)
             stroka += b_letters[num - move]    
         else:
-            stroka += b
+            stroka += b  # Если введена не буква, то ничего не меняется
     return stroka
 
 print('Расшифровка: ', DeCipher(text))
