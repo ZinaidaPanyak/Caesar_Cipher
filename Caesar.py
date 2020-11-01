@@ -18,20 +18,24 @@ def Cipher(text, move=a):
     for b in text:
         if b in letters:
             num = letters.index(b)  # Определяем номер буквы
-            k = num + move  # Определяем номер замещающей буквы
+            d = move - (move // 33) * 33  # Определяем номер замещающей буквы
+            k = num + d
             if k > 32:  # Учитываем, что при номере новой буквы, превышающем 32, нужно перейти к началу алфавита
-              z = k - 33
-              stroka += letters[z]
+              kn = k - 33
+              stroka += letters[kn]
             elif k <= 32:
               stroka += letters[k]
         elif b in b_letters:  # Всё то же самое, но для заглавных букв
             num = b_letters.index(b)
-            k = num + move
+            d = move - (move // 33) * 33  # Определяем номер замещающей буквы
+            k = num + d
             if k > 32:
-                z = k - 33
-                stroka += b_letters[z]      
+                kn = k - 33
+                stroka += b_letters[kn] 
+            elif k <= 32:
+                stroka += b_letters[k]  
         else:   # Если введена не буква, то ничего не меняется
-            stroka += b
+                stroka += b
     return stroka
 
 
@@ -43,10 +47,14 @@ def DeCipher(text, move=a):
     for b in text:
         if b in letters:
             num = letters.index(b)  # Определяем номер буквы
-            stroka += letters[num - move]  # Добавляем новую букву с учетом сдвига
+            d = move - (move // 33) * 33
+            k = num - d
+            stroka += letters[k]  # Добавляем новую букву с учетом сдвига
         elif b in b_letters:  # Все то же самое для заглавных букв   
             num = b_letters.index(b)
-            stroka += b_letters[num - move]    
+            d = move - (move // 33) * 33
+            k = num - d
+            stroka += b_letters[k]    
         else:
             stroka += b  # Если введена не буква, то ничего не меняется
     return stroka
